@@ -36,18 +36,19 @@ from torch.utils.cpp_extension import CUDA_HOME, CppExtension, CUDAExtension
 # groundingdino version info
 version = "0.1.0"
 package_name = "groundingdino"
-cwd = os.path.dirname(os.path.abspath(__file__))
+# cwd = os.path.dirname(os.path.abspath(__file__))
 
 
-sha = "Unknown"
-try:
-    sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=cwd).decode("ascii").strip()
-except Exception:
-    pass
+# sha = "Unknown"
+# try:
+#     sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=cwd).decode("ascii").strip()
+# except Exception:
+#     pass
 
 
 def write_version_file():
-    version_path = os.path.join(cwd, "GroundingDINO", "groundingdino", "version.py")
+    # version_path = os.path.join(cwd, "GroundingDINO", "groundingdino", "version.py")
+    version_path = os.path.join("GroundingDINO", "groundingdino", "version.py")
     with open(version_path, "w") as f:
         f.write(f"__version__ = '{version}'\n")
         # f.write(f"git_version = {repr(sha)}\n")
@@ -59,8 +60,8 @@ torch_ver = [int(x) for x in torch.__version__.split(".")[:2]]
 
 
 def get_extensions():
-    this_dir = os.path.dirname(os.path.abspath(__file__))
-    extensions_dir = os.path.join(this_dir, "GroundingDINO", "groundingdino", "models", "GroundingDINO", "csrc")
+    # this_dir = os.path.dirname(os.path.abspath(__file__))
+    extensions_dir = os.path.join("GroundingDINO", "groundingdino", "models", "GroundingDINO", "csrc")
 
     main_source = os.path.join(extensions_dir, "vision.cpp")
     sources = glob.glob(os.path.join(extensions_dir, "**", "*.cpp"))
@@ -100,7 +101,7 @@ def get_extensions():
         extra_compile_args["nvcc"] = []
         return None
 
-    sources = [os.path.join(extensions_dir, s) for s in sources]
+    # sources = [os.path.join(extensions_dir, s) for s in sources]
     include_dirs = [extensions_dir]
 
     ext_modules = [
