@@ -48,7 +48,7 @@ package_name = "groundingdino"
 
 def write_version_file():
     # version_path = os.path.join(cwd, "GroundingDINO", "groundingdino", "version.py")
-    version_path = os.path.join("GroundingDINO", "groundingdino", "version.py")
+    version_path = os.path.join("src", "groundingdino", "version.py")
     with open(version_path, "w") as f:
         f.write(f"__version__ = '{version}'\n")
         # f.write(f"git_version = {repr(sha)}\n")
@@ -61,7 +61,7 @@ torch_ver = [int(x) for x in torch.__version__.split(".")[:2]]
 
 def get_extensions():
     # this_dir = os.path.dirname(os.path.abspath(__file__))
-    extensions_dir = os.path.join("GroundingDINO", "groundingdino", "models", "GroundingDINO", "csrc")
+    extensions_dir = os.path.join("src", "groundingdino", "models", "GroundingDINO", "csrc")
 
     main_source = os.path.join(extensions_dir, "vision.cpp")
     sources = glob.glob(os.path.join(extensions_dir, "**", "*.cpp"))
@@ -106,7 +106,7 @@ def get_extensions():
 
     ext_modules = [
         extension(
-            "GroundingDINO.groundingdino._C",
+            "src/groundingdino._C",
             sources,
             include_dirs=include_dirs,
             define_macros=define_macros,
