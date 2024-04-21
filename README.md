@@ -1,3 +1,32 @@
+# Install instructions
+
+1. Create virtualenv.
+   ```bash
+   python3 -m venv .venv --prompt=GroundedSAM
+   ```
+
+2. Source virtualenv.
+   ```bash
+   source .venv/bin/activate
+   ```
+
+3. Install [pdm](https://pdm-project.org/latest/).
+   ```bash
+   pip install pdm
+   ```
+
+4. Export environment variables:
+   ```bash
+   export AM_I_DOCKER=False
+   export BUILD_WITH_CUDA=True
+   export CUDA_HOME=/usr/local/cuda-12.4  # replace with path to your CUDA
+   ```
+
+5. Install using pdm.
+   ```bash
+   pdm install --no-isolation
+   ```
+
 ![](./assets/Grounded-SAM_logo.png)
 
 # Grounded-Segment-Anything

@@ -1,0 +1,43 @@
+[project]
+name = "Grounded-Segment-Anything"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Grounded SAM Authors"},
+]
+dependencies = [
+    "addict",
+    "diffusers",
+    "gradio",
+    "huggingface-hub",
+    "matplotlib",
+    "numpy",
+    "onnxruntime",
+    "opencv-python",
+    "Pillow",
+    "pycocotools",
+    "PyYAML",
+    "requests",
+    "setuptools",
+    "supervision",
+    "termcolor",
+    "timm",
+    "torch",
+    "torchvision",
+    "transformers",
+    "yapf",
+    "nltk",
+    "fairscale",
+    "litellm",
+]
+requires-python = ">=3.10,<3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.pdm]
+distribution = true
