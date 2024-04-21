@@ -3,7 +3,7 @@ import cv2
 
 
 CONFIG_PATH = "GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py"
-CHECKPOINT_PATH = "./groundingdino_swint_ogc.pth"
+CHECKPOINT_PATH = "./weights/groundingdino_swint_ogc.pth"
 DEVICE = "cuda"
 IMAGE_PATH = "assets/demo7.jpg"
 TEXT_PROMPT = "Horse. Clouds. Grasses. Sky. Hill."
@@ -28,4 +28,5 @@ boxes, logits, phrases = predict(
 )
 
 annotated_frame = annotate(image_source=image_source, boxes=boxes, logits=logits, phrases=phrases)
-cv2.imwrite("annotated_image.jpg", annotated_frame)
+cv2.imshow('', annotated_frame)
+cv2.waitKey(3000)
