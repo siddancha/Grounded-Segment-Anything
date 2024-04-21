@@ -27,6 +27,22 @@
    pdm install --no-isolation
    ```
 
+6. Download pre-trained models.
+   ```bash
+   ./download.sh
+   ```
+
+7. Run the demo
+   ```bash
+   ./demo.sh
+   ```
+   You should see the following images
+
+   <img width=400px src='assets/grounded_dino_output_horses.png'>
+   <img width=400px src='assets/demo1.jpg'>
+   <img width=400px src='assets/gsam-bear-det.png'>
+   <img width=400px src='assets/gsam-bear-seg.png'>
+
 ![](./assets/Grounded-SAM_logo.png)
 
 # Grounded-Segment-Anything

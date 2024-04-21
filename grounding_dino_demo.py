@@ -1,6 +1,5 @@
 from groundingdino.util.inference import load_model, load_image, predict, annotate, Model
-import cv2
-
+from PIL import Image
 
 CONFIG_PATH = "GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py"
 CHECKPOINT_PATH = "./weights/groundingdino_swint_ogc.pth"
@@ -28,5 +27,4 @@ boxes, logits, phrases = predict(
 )
 
 annotated_frame = annotate(image_source=image_source, boxes=boxes, logits=logits, phrases=phrases)
-cv2.imshow('', annotated_frame)
-cv2.waitKey(3000)
+Image.fromarray(annotated_frame[:, :, ::-1]).show()
