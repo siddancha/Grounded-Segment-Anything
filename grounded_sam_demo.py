@@ -117,6 +117,7 @@ def save_mask_data(output_dir, mask_list, box_list, label_list):
     plt.imshow(mask_img.numpy())
     plt.axis('off')
     plt.savefig(os.path.join(output_dir, 'mask.jpg'), bbox_inches="tight", dpi=300, pad_inches=0.0)
+    plt.show()
 
     json_data = [{
         'value': value,
@@ -190,6 +191,7 @@ if __name__ == "__main__":
 
     # visualize raw image
     image_pil.save(os.path.join(output_dir, "raw_image.jpg"))
+    image_pil.show()
 
     # run grounding dino model
     boxes_filt, pred_phrases = get_grounding_output(
@@ -235,5 +237,6 @@ if __name__ == "__main__":
         os.path.join(output_dir, "grounded_sam_output.jpg"),
         bbox_inches="tight", dpi=300, pad_inches=0.0
     )
+    plt.show()
 
     save_mask_data(output_dir, masks, boxes_filt, pred_phrases)
