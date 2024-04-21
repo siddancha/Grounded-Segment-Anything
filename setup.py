@@ -106,7 +106,7 @@ def get_extensions():
 
     ext_modules = [
         extension(
-            "src/groundingdino._C",
+            "groundingdino._C",
             sources,
             include_dirs=include_dirs,
             define_macros=define_macros,
@@ -282,13 +282,15 @@ if __name__ == "__main__":
         url="https://github.com/IDEA-Research/GroundingDINO",
         description="open-set object detector",
         license=license,
-        install_requires=parse_requirements("requirements.txt"),
+        # install_requires=parse_requirements("requirements.txt"),
         packages=find_packages(
+            where='src/*',
             exclude=(
                 "configs",
                 "tests",
-            )
+            ),
         ),
+        package_dir={'': 'src'},
         ext_modules=get_extensions(),
         cmdclass={"build_ext": torch.utils.cpp_extension.BuildExtension},
     )
