@@ -96,10 +96,14 @@ def get_extensions():
             "-D__CUDA_NO_HALF2_OPERATORS__",
         ]
     else:
-        print("Compiling without CUDA")
-        define_macros += [("WITH_HIP", None)]
-        extra_compile_args["nvcc"] = []
-        return None
+        raise ValueError(
+            "CUDA is not available. "
+            "Please make sure that CUDA is installed and the CUDA_HOME environment variable is set."
+        )
+        # print("Compiling without CUDA")
+        # define_macros += [("WITH_HIP", None)]
+        # extra_compile_args["nvcc"] = []
+        # return None
 
     # sources = [os.path.join(extensions_dir, s) for s in sources]
     include_dirs = [extensions_dir]
