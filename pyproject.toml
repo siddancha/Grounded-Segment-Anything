@@ -39,7 +39,7 @@ readme = "README.md"
 license = {text = "MIT"}
 
 [build-system]
-requires = ["pdm-backend"]
+requires = ["pdm-backend", "torch"]
 build-backend = "pdm.backend"
 
 [tool.pdm]

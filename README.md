@@ -24,7 +24,7 @@
 
 5. Install using pdm.
    ```bash
-   pdm install --no-isolation
+   pdm install -v
    ```
 
 6. Download pre-trained models.

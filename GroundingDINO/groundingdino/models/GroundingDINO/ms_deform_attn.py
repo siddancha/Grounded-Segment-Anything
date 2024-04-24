@@ -28,6 +28,7 @@ from torch.nn.init import constant_, xavier_uniform_
 try:
     from groundingdino import _C
 except:
+    raise ImportError("Failed to load custom C++ ops.")
     warnings.warn("Failed to load custom C++ ops. Running on CPU mode Only!")
 
 
