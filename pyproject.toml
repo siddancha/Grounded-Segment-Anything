@@ -39,7 +39,7 @@ readme = "README.md"
 license = {text = "MIT"}
 
 [build-system]
-requires = ["pdm-backend", "torch"]
+requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [tool.pdm]
@@ -47,3 +47,8 @@ distribution = true
 
 [tool.pdm.build]
 run-setuptools = true
+
+# no-isolation since dependencies build PyTorch CUDA extensions
+[tool.pdm.options]
+add = ["--no-isolation"]
+install = ["--no-isolation"]
