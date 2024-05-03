@@ -30,7 +30,8 @@ dependencies = [
     "nltk",
     "fairscale",
     "litellm",
-    "ram @ git+https://github.com/xinyu1205/recognize-anything.git",
+    # RAM is not actually used by the original Grounded SAM codebase
+    # "ram @ git+https://github.com/xinyu1205/recognize-anything.git",
     "ipykernel",
     "mmcv-full>=1.7.2",
 ]
